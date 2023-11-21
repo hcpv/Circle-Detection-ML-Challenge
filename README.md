@@ -17,6 +17,7 @@ $ python prepare_data.py
 ```
 
 This script takes following arguments as inputs :
+```
 img_size - Image size of the dataset. Default value is 64.
 noise_level - Noise level that gets added to image. Default value is 0.1.
 min_radius - Minimum radius. Default value is img_size/10.
@@ -25,6 +26,7 @@ n_train - Number of training samples. Defalut value is 30000.
 n_val - Number of validation samples. Defalut value is 10000.
 n_testing - Number of testing samples. Defalut value is 10000.
 filepath - Directory where prepared data would be saved. Default value is None.
+```
 
 Here is how this script works:
 - Firstly it prepares train, val and test datasets according to the arguments passed. 
@@ -42,6 +44,7 @@ $ python run.py
 ```
 
 This script takes following arguments as inputs :
+```
 img_size - Image size of the dataset. Default value is 64.
 noise_level - Noise level that gets added to image. Default value is 0.1.
 min_radius - Minimum radius. Default value is img_size/10.
@@ -56,6 +59,7 @@ epochs - Number of epochs. Default value is 1000.
 threshold - Threshold to get the accuracy. Default value is 0.9.
 early_stop_thresh - Number of epochs after which early stop training. Default value is 10.
 lr - learning rate. Default value is 1e-4.
+```
 
 Here is how this script works:
 
