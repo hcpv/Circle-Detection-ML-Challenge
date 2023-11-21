@@ -11,9 +11,9 @@ from prepare_data import prepare_data
 from utils import accuracy
 
 
-def load_model(filename):
+def load_model(model, filename):
     """Loads saved torch model"""
-    return torch.load(filename)
+    model.load_state_dict(torch.load(filename))
 
 
 def save_model(model, filename):
@@ -136,7 +136,7 @@ def run(args):
     print(f"Best model at epoch {best_epoch} with val accuracy {best_accuracy}")
 
     # load the best model
-    model = load_model(filename)
+    load_model(model, filename)
 
     # evaluate test data
     test_accuracy = model_eval(test_dataloader, model, device, args.threshold)
@@ -147,10 +147,17 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--img_size", type=int, default=64)
     parser.add_argument("--noise_level", type=float, default=0.1)
+    parser.add_argument("--min_radius", type=float, default=None)
+    parser.add_argument("--max_radius", type=float, default=None)
+    parser.add_argument("--n_train", type=int, default=30000)
+    parser.add_argument("--n_val", type=int, default=10000)
+    parser.add_argument("--n_test", type=int, default=10000)
     parser.add_argument("--filepath", type=str, default=None)
+    parser.add_argument("--savepath", type=str, default=None)
+
+    # hyperparameters
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--epochs", type=int, default=1000)
-    parser.add_argument("--savepath", type=str, default=None)
     parser.add_argument("--threshold", type=float, default=0.9)
     parser.add_argument("--early_stop_thresh", type=int, default=10)
     parser.add_argument("--lr", type=float, default=1e-3)
