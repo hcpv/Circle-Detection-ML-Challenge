@@ -157,7 +157,7 @@ def get_args():
 
     # hyperparameters
     parser.add_argument("--batch_size", type=int, default=64)
-    parser.add_argument("--epochs", type=int, default=1000)
+    parser.add_argument("--epochs", type=int, default=200)
     parser.add_argument("--threshold", type=float, default=0.9)
     parser.add_argument("--early_stop_thresh", type=int, default=10)
     parser.add_argument("--lr", type=float, default=1e-3)
