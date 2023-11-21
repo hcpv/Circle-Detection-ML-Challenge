@@ -1,0 +1,5 @@
+data_*
+saved*
+.ipynb_checkpoints*
+nohup.out
+*.ipynb
