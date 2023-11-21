@@ -74,6 +74,7 @@ Here is how this script works:
 All the training was done UW Madison CS labs' GPU machines (12 GB Nvidia 2080 TI).
 
 To get the data ready, I picked a picture size of 64. For data split into training, validation, and testing sets, I went with a ratio of 60:20:20. At first, I made only 3000 examples for training, but that didn't work well for the model. So, I increased the training size to 30000, and it worked much better.
+
 For modelling, I employed three layers of convolution with max-pooling and ReLU activation. Following the convolution, there are three fully connected layers. The final layer consists of three output neurons, each corresponding to the x-coordinate, y-coordinate, and radius of the circle. This model has around 9 million learnable parameters. Initially, I began with a two-layered CNN model with 1 million parameters. However, the model's performance was subpar, so I opted for the model discussed above. I used Mean Squared Error (MSE) for loss function. For Optimizer, I used Adam with learning rate of 1e-4. I trained the model for maximum of 200 epochs. However, in all the cases the training stopped early under 80 epochs.
 
 To evaluate the model, I used a threshold of 0.9, meaning that instances where the "intersection over union" (IOU) metric between the true location of the circle in the image and the predicted location is greater than 0.9 are classified as correct.
